@@ -1,24 +1,28 @@
 # Pogostick Project
 
-A custom physics-driven 2D platformer built in Godot, centered around momentum-based pogo-stick movement and precise control.
+A physics-driven 2D platformer built in Godot, centered around unique pogo-stick movement and precise control.
 
 ## Gameplay
 The game is a single, highly difficult level.
 Climb to the waving red flag to complete the game!
 
 <p align="center">
-  <img src="screenshots/finish.png" width="400">
-  <img src="screenshots/jump.png" width="400">
+  <img src="screenshots/finish.png" height="400">
+  <img src="screenshots/jump.png" height="400">
 </p>
+
+## Controls
+- **Rotate Left/Right**: Adjust the pogo-stick orientation mid-air
+- **Pause/Menu**: Esc key
+- **Jumping**: Driven by physics and orientation rather than a jump button, unless autojump is disabled in the menu
 
 ## Technical Highlights
 - Built with **Godot 4**
 - Custom physics-based movement using compressing, rotation, bouncing, gravity, etc.
 - Controls are rotation only, unless the auto jump mode is disabled (makes the game easier)
 - Scene-based architecture with tilemap
-- Explicit handling of game states (active, reset, completion)
 
-## Engineering Focus
+## Design Focus
 This project was an exercise in:
 - Designing and tuning physics-driven mechanics for responsiveness
 - Structuring gameplay logic using Godot’s node and signal system
@@ -26,7 +30,11 @@ This project was an exercise in:
 
 The emphasis was on custom physics and challenging yet fun gameplay feel rather than content volume.
 
-## How to Run
-1. Install **Godot 4**
-2. Open the project file in Godot
-3. Run the main scene
+## How to Run Locally in Browser
+An HTML5 build is included in the 'web/' directory.
+
+1. Install web folder
+2. Run a local web server from the folder's location
+3. Open localhots:XXXX in your web browser
+4. Navigate to 'Pogo Stick.html'
+5. Play!
