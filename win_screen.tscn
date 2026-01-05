@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cthwx5shc26bt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1

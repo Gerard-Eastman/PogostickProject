@@ -1,0 +1,125 @@
+[gd_scene load_steps=21 format=3 uid="uid://c36pyasy7ax87"]
+
+[ext_resource type="Script" path="res://PogoStickCharacter.gd" id="1_x0ghq"]
+[ext_resource type="Texture2D" uid="uid://wajl2ks2ow3e" path="res://Assets/pogo animated/POGO animated_0001.png" id="2_5m3yh"]
+[ext_resource type="Texture2D" uid="uid://rqb722w5jypw" path="res://Assets/pogo animated/POGO animated_0002.png" id="3_cbrgs"]
+[ext_resource type="Texture2D" uid="uid://bnhrtuxay5p6i" path="res://Assets/pogo animated/POGO animated_0003.png" id="4_tjnj6"]
+[ext_resource type="Texture2D" uid="uid://df1keppe5xo5v" path="res://Assets/pogo animated/POGO animated_0004.png" id="5_n4sb3"]
+[ext_resource type="Texture2D" uid="uid://xe7ewlarx40e" path="res://Assets/pogo animated/POGO animated_0005.png" id="6_jox4p"]
+[ext_resource type="Texture2D" uid="uid://p1t5ppawwh5e" path="res://Assets/pogo animated/POGO animated_0006.png" id="7_vav4r"]
+[ext_resource type="Texture2D" uid="uid://bvm4vtbq6yxwx" path="res://Assets/pogo animated/POGO animated_0007.png" id="8_d4d3j"]
+[ext_resource type="Texture2D" uid="uid://1hgs653raoma" path="res://Assets/pogo animated/POGO animated_0008.png" id="9_efg0l"]
+[ext_resource type="Texture2D" uid="uid://do1fjqyisd7t0" path="res://Assets/pogo animated/POGO animated_0009.png" id="10_5gkj5"]
+[ext_resource type="Texture2D" uid="uid://cyj7t0mc3635d" path="res://Assets/pogo animated/POGO animated_0010.png" id="11_atiay"]
+[ext_resource type="Texture2D" uid="uid://vcgdh3cwkypc" path="res://Assets/pogo animated/POGO animated_0011.png" id="12_kkk1v"]
+[ext_resource type="Texture2D" uid="uid://cgxk1ptdbq0hp" path="res://Assets/pogo animated/POGO animated_0012.png" id="13_rmdbt"]
+[ext_resource type="Texture2D" uid="uid://c5drfyamoacrf" path="res://Assets/pogo animated/POGO animated_0013.png" id="14_1ukmc"]
+[ext_resource type="Texture2D" uid="uid://b3mk5h5qrvkk" path="res://Assets/pogo animated/POGO animated_0014.png" id="15_md1lu"]
+[ext_resource type="Script" path="res://Scenes/CanJump.gd" id="16_ltug6"]
+[ext_resource type="Texture2D" uid="uid://de4r3wof2aj4j" path="res://Assets/pogo animated/POGO animated_0015.png" id="16_wuydy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jwi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5m3yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cbrgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tjnj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n4sb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jox4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vav4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d4d3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_efg0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5gkj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_atiay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kkk1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rmdbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1ukmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_md1lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wuydy")
+}],
+"loop": false,
+"name": &"compressing",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5m3yh")
+}],
+"loop": false,
+"name": &"still",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xij22"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c2qsl"]
+
+[node name="PogoStickCharacter" type="CharacterBody2D" groups=["player"]]
+collision_layer = 5
+collision_mask = 5
+floor_stop_on_slope = false
+floor_max_angle = 0.0174533
+script = ExtResource("1_x0ghq")
+
+[node name="PogoSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -45)
+sprite_frames = SubResource("SpriteFrames_7jwi6")
+animation = &"compressing"
+offset = Vector2(7, -11)
+
+[node name="JumpBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_xij22")
+
+[node name="CanJump" type="Area2D" parent="."]
+position = Vector2(0, -45)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_ltug6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanJump"]
+position = Vector2(0, 39)
+shape = SubResource("CircleShape2D_c2qsl")
+
+[node name="CenterOfMass" type="Node2D" parent="." groups=["camera_follow"]]
+position = Vector2(0, -69)
+
+[node name="RightPivot" type="Node2D" parent="."]
+position = Vector2(42, -151)
+
+[node name="LeftPivot" type="Node2D" parent="."]
+position = Vector2(-42, -151)
+
+[node name="PogoBox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -57)
+polygon = PackedVector2Array(42, -94, -42, -94, 0, 38)

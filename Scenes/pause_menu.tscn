@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwwu0cw5721pn"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_k4yab"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k4yab")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -319.5
+offset_right = 150.0
+offset_bottom = 319.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.13934, 1.13934)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="ShowFPS" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Show FPS"
+
+[node name="AutoJump" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Autojump"
+
+[node name="Timer" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+button_pressed = true
+text = "Timer
+"
+
+[node name="Respawn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESPAWN
+"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_button_down"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/ShowFPS" to="." method="_on_show_fps_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/AutoJump" to="." method="_on_auto_jump_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Timer" to="." method="_on_timer_toggled"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Respawn" to="." method="_on_respawn_button_down"]

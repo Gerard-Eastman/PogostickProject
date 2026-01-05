@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2eflfmt0a7bs"]
+
+[node name="Scrap" type="Node"]
+
+[node name="PogoBox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -57)
+polygon = PackedVector2Array(44, -96, -44, -97, 0, 38)
