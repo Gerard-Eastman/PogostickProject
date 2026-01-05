@@ -7,7 +7,7 @@ The game is a single, highly difficult level.
 Climb to the waving red flag to complete the game!
 
 <p align="center">
-  <img src="screenshots/start.png" width="400">
+  <img src="screenshots/finish.png" width="400">
   <img src="screenshots/jump.png" width="400">
 </p>
 
