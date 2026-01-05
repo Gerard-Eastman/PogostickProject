@@ -18,7 +18,7 @@ Climb to the waving red flag to complete the game!
 
 ## Technical Highlights
 - Built with **Godot 4**
-- Custom physics-based movement using compressing, rotation, bouncing, gravity, etc.
+- Custom physics-based movement: pogostick compression, rotation, bouncing, and gravity
 - Controls are rotation only, unless the auto jump mode is disabled (makes the game easier)
 - Scene-based architecture with tilemap
 
@@ -33,8 +33,7 @@ The emphasis was on custom physics and challenging yet fun gameplay feel rather 
 ## How to Run Locally in Browser
 An HTML5 build is included in the 'web/' directory.
 
-1. Install web folder
-2. Run a local web server from the folder's location
-3. Open localhots:XXXX in your web browser
-4. Navigate to 'Pogo Stick.html'
-5. Play!
+1. Download the 'web' folder
+2. Run a local web server from the web folder's location '''python3 -m http.server'''
+3. Open http://localhost:8000/Pogo%20Stick.html in your browser
+4. Play!
